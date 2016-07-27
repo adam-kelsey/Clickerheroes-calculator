@@ -2,27 +2,43 @@
   <head> </head> 
   <script type="text/javascript">
   function myfunction() { 
-  var first = document.getElementById("ancientSouls").value;
-  var answer = parseFloat(first);
+    var remaining;
+    var first = document.getElementById("ancientSouls").value;
+    var answer = parseFloat(first);
+    remaining = answer
 
-  function calculateXyl() {
-    return first / 10;
-  }
-
-  function calculatePhan() {
-
-    var minAS = first - calculateXyl()
-    if (minAS < 3) {
-      return "0"; 
-    } else if (minAS >= 3 && < 10) {
-      return "1";
-    } else if (minAS >= 10 && < 21) {
-      return "2";
+    function calculateXyl() {
+      var x = answer / 10;
+      remaining = answer - x
+      return x;
     }
-  }
 
-  var soulAllocation = document.getElementById('soulAllocation');
-  soulAllocation.value=answer;
+    function calculatePhan() {
+
+      var minAS = remaining;  //Once the math is actually worked out, this whole thing may need to be redone;
+      if (minAS < 3) {
+        return "0"; 
+      } else if (minAS >= 3 && < 10) {
+        return "1";
+      } else if (minAS >= 10 && < 21) {
+        return "2";
+      }
+    }
+
+    //anything below this line has not been touched since I can now use the variable remaining throughout the rest of the code
+
+    function calculateBorb() {
+      var minAS = first - ( calculateXyl() + calculatePhan() );
+      var borbAS = Math.ceil(minAS);
+      return borbAS;
+    }
+
+    function calculatePony() {
+
+    }
+
+    var soulAllocation = document.getElementById('soulAllocation');
+    soulAllocation.value=answer;
   } 
   </script>
   <body>
