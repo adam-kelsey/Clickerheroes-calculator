@@ -1,0 +1,38 @@
+<html> 
+  <head> </head> 
+  <script type="text/javascript">
+  function myfunction() { 
+  var first = document.getElementById("ancientSouls").value;
+  var answer = parseFloat(first);
+
+  function calculateXyl() {
+    return first / 10;
+  }
+
+  function calculatePhan() {
+
+    var minAS = first - calculateXyl()
+    if (minAS < 3) {
+      return "0"; 
+    } else if (minAS >= 3 && < 10) {
+      return "1";
+    } else if (minAS >= 10 && < 21) {
+      return "2";
+    }
+  }
+
+  var soulAllocation = document.getElementById('soulAllocation');
+  soulAllocation.value=answer;
+  } 
+  </script>
+  <body>
+    <p>How many Ancient Souls do you have?<p>
+    <input type="text" name="ancientSouls" id="ancientSouls" />
+    <input type="submit" name="button" id="button1" onclick="myfunction()" value="Enter" />
+    <br/>
+    <br/>
+    This is how you should allocate your souls: <br/>
+    <input type="text" name="soulAllocation" id="soulAllocation" readonly="true"/>
+  </body>
+ </html>
+
